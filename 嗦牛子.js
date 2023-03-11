@@ -6,7 +6,7 @@ import plugin from '../../lib/plugins/plugin.js'
  * @Description: 
  * @Author: kirito
  * @Date: 2023-03-11 19:00:07
- * @LastEditTime: 2023-03-11 20:14:29
+ * @LastEditTime: 2023-03-11 21:00:28
  * @Blog: mywifeasuna.top
  */
 
@@ -48,7 +48,7 @@ export class suo extends plugin {
         let mem = arrMember[Math.round(Math.random() * (arrMember.length-1))];
         let msg = [segment.at(e.user_id), "嗦到了" + mem.nickname + "的牛牛居然有" + num/10 + "cm这么长", segment.image(`https://q1.qlogo.cn/g?b=qq&s=0&nk=${mem.user_id}`)]
         e.reply(msg);
-      } else if (num > 200) {
+      } else if (num > 150) {
         let map = await e.group.getMemberMap();
         let arrMember = Array.from(map.values());
         let mem = arrMember[Math.round(Math.random() * (arrMember.length-1))];
