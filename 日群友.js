@@ -25,6 +25,10 @@ export class fuck extends plugin {
         {
           reg: '^#?(日群主|透群主)$',
           fnc: 'fuckowner'
+        },
+        {
+          reg: '^#?(日管理|透管理)$',
+          fnc: 'fuckadmin'
         }
       ]
     })
@@ -57,18 +61,38 @@ export class fuck extends plugin {
         e.reply(msg);
       }
   }
-
+  
   async fuckowner (e) {
     console.log("用户命令：", e.msg);
     let map = await e.group.getMemberMap();
     let arrMember = Array.from(map.values());
-    let mem = arrMember[0];
-    if (e.nickname == mem.nickname) {
-      let msg = ["你要日你自己？", segment.at(e.user_id)]
+    let mem = arrMember[0]
+    if (e.group.pickMember(e.user_id).is_owner) {
+      let msg = ["尊狗的贵群主，你要日你自己？", segment.at(e.user_id)]
       e.reply(msg)
     } else {
       let msg = [segment.at(e.user_id), "狠狠的对群主", segment.at(mem.user_id), "注射了脱氧核糖核酸！"]
       e.reply(msg)
     }
+  }
+
+  async fuckadmin (e) {
+    console.log("用户命令：", e.msg);
+    let map = await e.group.getMemberMap();
+    let arrMember = Array.from(map.values());
+    if (e.group.pickMember(e.user_id).is_admin) {
+      let msg = ["亲狗的爱管理，你要日你自己？", segment.at(e.user_id)]
+      e.reply(msg)
+    }
+    let mem = arrMember[Math.round(Math.random() * (arrMember.length-1))];
+    while (true) {
+      if (e.group.pickMember(mem.user_id).is_admin) {
+        let msg = [segment.at(e.user_id), "狠狠的对管理", segment.at(mem.user_id), "注射了脱氧核糖核酸！"]
+        e.reply(msg)
+        break
+      } else {
+        mem = arrMember[Math.round(Math.random() * (arrMember.length-1))];
+      }
+    }   
   }
 }
