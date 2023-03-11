@@ -15,5 +15,16 @@
 日我
 ```
 
+## 开坑
+
+- [ ] 嗦牛子
+- [ ] 打胶
+- [ ] pk对决
+- [ ] 牛子排行榜
+- [ ] 淫趴
+- [ ] 日群友|透群友|日群主|透群主|日管理|透管理
+- [ ] 合并以上功能
+
 # 感谢
+
 + <a href="https://github.com/Le-niao/Yunzai-Bot">官方Yunzai-Bot-V3</a> : <a href="https://gitee.com/Le-niao/Yunzai-Bot" rel="nofollow">Gitee</a> | <a href="https://github.com/Le-niao/Yunzai-Bot">Github</a>
